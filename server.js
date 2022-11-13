@@ -1,5 +1,6 @@
 require('dotenv').config();
 
+const port = 3000;
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
@@ -17,4 +18,4 @@ app.use('/user', userRouter);
 const ownedBooksRouter = require('./routes/owned-books');
 app.use('/owned-books', ownedBooksRouter);
 
-app.listen(3000, (() => console.log('Server started')));
+app.listen(process.env.PORT || port, (() => console.log('Server started')));
